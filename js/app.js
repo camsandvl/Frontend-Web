@@ -66,6 +66,7 @@ function closeModal() {
   modal.classList.remove('modal--open');
   form.reset();
   document.getElementById('img-preview').src = '';
+  document.getElementById('img-label').style.display = 'block';
   ratingContainer.innerHTML = '';
   editingId = null;
 }
@@ -100,9 +101,11 @@ function openModal(series = null) {
 form.elements['image'].addEventListener('change', e => {
   const file    = e.target.files[0];
   const preview = document.getElementById('img-preview');
+  const label   = document.getElementById('img-label');
   if (file) {
     preview.src           = URL.createObjectURL(file);
     preview.style.display = 'block';
+    label.style.display   = 'none';
   }
 });
 
