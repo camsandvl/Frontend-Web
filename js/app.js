@@ -87,8 +87,10 @@ function openModal(series = null) {
   form.elements['rating'].value = series?.rating || '';
 
   const preview = document.getElementById('img-preview');
-  preview.src = series?.image_url ? `${BASE_URL}${series.image_url}` : '';
+  const label   = document.getElementById('img-label');
+  preview.src          = series?.image_url ? `${BASE_URL}${series.image_url}` : '';
   preview.style.display = series?.image_url ? 'block' : 'none';
+  label.style.display   = series?.image_url ? 'none'  : 'block';
 
   ratingContainer.innerHTML = '';
   if (series) renderRatingWidget(series.id, ratingContainer);
