@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="noise"></div>
+
+  <header class="navbar">
+    <div class="navbar-brand">
+      <span class="brand-icon">▶</span>
+      <span class="brand-name">SERIES<span class="brand-accent">TRACKER</span></span>
+    </div>
+    <div class="navbar-controls">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="search" type="text" placeholder="Search series…" class="search-input" autocomplete="off">
+      </div>
+      <select id="sort-select" class="sort-select">
+        <option value="created_at-desc">Newest first</option>
+        <option value="created_at-asc">Oldest first</option>
+        <option value="title-asc">Title A–Z</option>
+        <option value="title-desc">Title Z–A</option>
+        <option value="rating-desc">Highest rated</option>
+        <option value="rating-asc">Lowest rated</option>
+      </select>
+      <button id="btn-add" class="btn btn--primary">+ Add Series</button>
+      <div class="export-group">
+        <button id="btn-csv"  class="btn btn--ghost">CSV</button>
+        <button id="btn-xlsx" class="btn btn--ghost">XLSX</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div id="grid" class="grid"></div>
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Add Series</h2>
+        <button id="btn-close-modal" class="btn-close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="series-form" novalidate>
+
+          <div class="form-row form-row--image">
+            <div class="img-upload-area">
+              <img id="img-preview" src="" alt="Cover preview" style="display:none">
+              <label for="img-input" class="img-upload-label" id="img-label">
+                <span>📷 Upload cover</span>
+              </label>
+              <input id="img-input" name="image" type="file" accept="image/*">
+            </div>
+            <div class="form-fields">
+              <div class="field">
+                <label for="f-title">Title <span class="required">*</span></label>
+                <input id="f-title" name="title" type="text" placeholder="Breaking Bad" required>
+              </div>
+              <div class="field">
+                <label for="f-genre">Genre</label>
+                <input id="f-genre" name="genre" type="text" placeholder="Drama, Sci-Fi…">
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-status">Status</label>
+                  <select id="f-status" name="status">
+                    <option value="">Select…</option>
+                    <option value="watching">Watching</option>
+                    <option value="completed">Completed</option>
+                    <option value="dropped">Dropped</option>
+                    <option value="planned">Planned</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-rating">Rating (0–10)</label>
+                  <input id="f-rating" name="rating" type="number" min="0" max="10" step="0.1" placeholder="8.5">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="rating-container" class="rating-section"></div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn--ghost" id="btn-cancel">Cancel</button>
+            <button type="submit" class="btn btn--primary">Save</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
