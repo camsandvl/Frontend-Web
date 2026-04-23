@@ -88,10 +88,6 @@ body {
 .search-wrap {
   position: relative; display: flex; align-items: center;
 }
-.search-icon {
-  position: absolute; left: 11px;
-  color: var(--text-muted); font-size: 1.1rem; pointer-events: none;
-}
 .search-input {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -99,7 +95,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 0.875rem;
-  padding: 8px 12px 8px 32px;
+  padding: 8px 12px;
   width: 220px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
