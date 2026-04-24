@@ -7,27 +7,27 @@
 :root {
   --bg:          #f9f9f9;
   --bg-card:     #ffffff;
-  --bg-elevated: #f4f4f4;
-  --border:      #dfdfdf;
-  --border-soft: #ececec;
+  --bg-elevated: #f2f3f5;
+  --border:      #e2e5e9;
+  --border-soft: #eceef1;
 
-  --text:        #1f1f1f;
-  --text-muted:  #666666;
-  --text-dim:    #8a8a8a;
+  --text:        #1f2328;
+  --text-muted:  #5f6b7a;
+  --text-dim:    #8c97a4;
 
-  --accent:      #fdb900;
-  --accent-dim:  #ff751f;
-  --accent-glow: rgba(253, 185, 0, 0.24);
+  --accent:      #ff751f;
+  --accent-dim:  #c65712;
+  --accent-glow: rgba(255, 117, 31, 0.22);
 
-  --red:         #e85040;
-  --green:       #40c880;
-  --blue:        #4090e8;
-  --purple:      #9060e8;
+  --red:         #d64545;
+  --green:       #2f9f61;
+  --blue:        #2f76d2;
+  --purple:      #7b57c9;
 
   --radius:      8px;
   --radius-lg:   14px;
-  --shadow:      0 6px 22px rgba(25, 25, 25, 0.08);
-  --shadow-lg:   0 12px 40px rgba(25, 25, 25, 0.12);
+  --shadow:      0 6px 20px rgba(24, 33, 43, 0.08);
+  --shadow-lg:   0 14px 40px rgba(24, 33, 43, 0.12);
 
   --font-display: 'Bebas Neue', sans-serif;
   --font-body:    'DM Sans', sans-serif;
@@ -57,7 +57,7 @@ body {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
   padding: 14px 32px;
-  background: rgba(249, 249, 249, 0.92);
+  background: rgba(249, 249, 249, 0.9);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
@@ -136,11 +136,11 @@ body {
 
 .btn--primary {
   background: var(--accent);
-  color: #0c0c0f;
+  color: #ffffff;
   border-color: var(--accent);
 }
 .btn--primary:hover:not(:disabled) {
-  background: #f0b030;
+  background: #e96818;
   box-shadow: 0 0 16px var(--accent-glow);
 }
 
@@ -277,7 +277,7 @@ body {
   cursor: pointer; transition: all 0.15s;
 }
 .page-btn:hover:not(:disabled) { color: var(--text); border-color: var(--accent-dim); }
-.page-btn--active { background: var(--accent); color: #0c0c0f; border-color: var(--accent); font-weight: 500; }
+.page-btn--active { background: var(--accent); color: #ffffff; border-color: var(--accent); font-weight: 500; }
 .page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
 /* ── Modal ─────────────────────────────────────────────────────────────────── */
