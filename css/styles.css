@@ -231,7 +231,7 @@ body {
 
 .card-genre { font-size: 0.78rem; color: var(--text-muted); }
 
-.card-rating { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; }
+.card-rating { margin: 6px 0 8px; }
 
 .stars { display: inline-flex; gap: 1px; }
 .star { color: var(--text-dim); }
@@ -388,12 +388,18 @@ select option { background: var(--bg-elevated); }
   border-top: 1px solid var(--border-soft);
 }
 .rating-widget { display: flex; flex-direction: column; gap: 8px; }
+.rating-widget--compact { gap: 4px; }
 .rating-summary { display: flex; align-items: baseline; gap: 8px; }
 .rating-avg {
   font-family: var(--font-display);
   font-size: 2rem; color: var(--accent);
 }
 .rating-count { font-size: 0.8rem; color: var(--text-muted); }
+
+.rating-widget--compact .rating-avg { font-size: 1rem; line-height: 1; }
+.rating-widget--compact .rating-count { font-size: 0.72rem; }
+.rating-widget--compact .stars-input { gap: 2px; }
+.rating-widget--compact .star-input { font-size: 1rem; }
 
 .stars-input { display: flex; gap: 3px; }
 .star-input {

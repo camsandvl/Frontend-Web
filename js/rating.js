@@ -1,6 +1,8 @@
 import { fetchRating, submitRating } from './api.js';
 
-export async function renderRatingWidget(seriesId, container) {
+export async function renderRatingWidget(seriesId, container, options = {}) {
+  const compact = !!options.compact;
+
   let data = null;
   try { data = await fetchRating(seriesId); } catch (_) {}
 
@@ -8,7 +10,7 @@ export async function renderRatingWidget(seriesId, container) {
   const count = data?.count ?? 0;
 
   container.innerHTML = `
-    <div class="rating-widget">
+    <div class="rating-widget${compact ? ' rating-widget--compact' : ''}">
       <div class="rating-summary">
         <span class="rating-avg">${avg}</span>
         <span class="rating-count">${count} vote${count !== 1 ? 's' : ''}</span>
@@ -18,7 +20,7 @@ export async function renderRatingWidget(seriesId, container) {
           `<span class="star-input" data-value="${i + 1}" title="${i + 1}/10">★</span>`
         ).join('')}
       </div>
-      <p class="rating-hint">Click to rate</p>
+      ${compact ? '' : '<p class="rating-hint">Click to rate</p>'}
     </div>`;
 
   const stars = container.querySelectorAll('.star-input');
@@ -29,7 +31,7 @@ export async function renderRatingWidget(seriesId, container) {
     star.addEventListener('click', async () => {
       try {
         await submitRating(seriesId, parseInt(star.dataset.value));
-        renderRatingWidget(seriesId, container);
+        renderRatingWidget(seriesId, container, options);
       } catch (e) {
         alert(e.message);
       }

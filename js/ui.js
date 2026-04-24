@@ -1,5 +1,6 @@
 import { deleteSeries } from './api.js';
 import { BASE_URL } from './api.js';
+import { renderRatingWidget } from './rating.js';
 
 let onEditCallback = null;
 
@@ -46,7 +47,7 @@ function buildCard(s) {
         <span class="badge badge--${statusClass}">${statusLabel}</span>
       </div>
       <p class="card-genre">${escHtml(s.genre || 'Unknown genre')}</p>
-      <div class="card-rating">${buildStarDisplay(s.rating)}</div>
+      <div class="card-rating" data-series-id="${s.id}"></div>
       <div class="card-actions">
         <button class="btn btn--edit" data-id="${s.id}">Edit</button>
         <button class="btn btn--delete" data-id="${s.id}">Delete</button>
@@ -55,6 +56,9 @@ function buildCard(s) {
 
   card.querySelector('.btn--edit').addEventListener('click', () => onEditCallback?.(s.id));
   card.querySelector('.btn--delete').addEventListener('click', () => handleDelete(s.id, card));
+
+  const ratingEl = card.querySelector('.card-rating');
+  renderRatingWidget(s.id, ratingEl, { compact: true });
 
   return card;
 }
