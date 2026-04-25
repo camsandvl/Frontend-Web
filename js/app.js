@@ -58,6 +58,8 @@ document.getElementById('btn-add').addEventListener('click', () => openModal());
 
 document.getElementById('btn-close-modal').addEventListener('click', closeModal);
 
+document.getElementById('btn-cancel').addEventListener('click', closeModal);
+
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
