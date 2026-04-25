@@ -58,7 +58,7 @@ function buildCard(s) {
   card.querySelector('.btn--delete').addEventListener('click', () => handleDelete(s.id, card));
 
   const ratingEl = card.querySelector('.card-rating');
-  renderRatingWidget(s.id, ratingEl, { compact: true });
+  renderRatingWidget(s.id, ratingEl, { compact: true, originalRating: s.rating });
 
   return card;
 }

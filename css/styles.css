@@ -389,7 +389,12 @@ select option { background: var(--bg-elevated); }
 }
 .rating-widget { display: flex; flex-direction: column; gap: 8px; }
 .rating-widget--compact { gap: 4px; }
+.rating-original { display: flex; align-items: baseline; gap: 6px; }
+.rating-original__label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.rating-original__value { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+.rating-original__max { font-size: 0.72rem; color: var(--text-muted); font-weight: 400; }
 .rating-summary { display: flex; align-items: baseline; gap: 8px; }
+.rating-avg-label { font-size: 0.72rem; color: var(--text-muted); }
 .rating-avg {
   font-family: var(--font-display);
   font-size: 2rem; color: var(--accent);
