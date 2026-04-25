@@ -20,7 +20,6 @@ export async function renderRatingWidget(seriesId, container, options = {}) {
       <div class="rating-summary">
         <span class="rating-avg">${avg}</span>
         <span class="rating-count">${count} vote${count !== 1 ? 's' : ''}</span>
-        <span class="rating-avg-label">avg</span>
       </div>
       <div class="stars-input" data-series="${seriesId}">
         ${Array.from({ length: 10 }, (_, i) =>
